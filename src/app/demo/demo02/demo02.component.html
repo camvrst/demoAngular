@@ -1,0 +1,9 @@
+<p>demo02 Events & attributs binding!</p>
+<p>La valeur du nombre est : {{nombre}}</p>
+<!-- 
+        Binding d'attributs : [nom de l'attribut]
+        Binding d'event : (nom de l'event)
+        Binding de propriétés : {{nomPropriete}}
+-->
+<button nbButton status="success" (click)="increase()" [disabled]="nombre>=9">+</button>
+<button nbButton status="danger" (click)="decrease()" [disabled]="nombre<=0">-</button>

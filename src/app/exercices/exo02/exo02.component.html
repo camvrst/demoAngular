@@ -1,0 +1,39 @@
+<p>Panier de courses</p>
+
+
+<!--
+Réaliser un pannier de course, un input, avec un bouton ajout.
+ça ajoute automatiquement un élément, possédant 3 boutons,
+1 pour augmanté de un ,
+1 pour diminuer de un ,
+1 pour supprimer tout et retirer l'élement de la liste,
+si l'élément arrive à 0, je le supprime de la liste,
+Fouiller sur le web pour voir comment fonctionne la confirm-box pour la supression
+Bien penser à mettre tous les services nécessaires en place
+-->
+
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label>Ingrédient : </label>
+        <input nbInput formControlName="nomItem">
+    </p>
+    <button nbButton type="submit" [disabled]="itemForm.invalid">Ajouter</button>
+</form>
+
+<h4>Vos ingrédients :</h4>
+<ul>
+    <li *ngFor="let item of items; let i = index;">
+        {{item.nomItem}} - {{item.nombreItem}}
+        <button nbButton
+        status="success"
+        (click)="increaseOne(i)"
+        >+</button>
+        <button nbButton
+        status="warning"
+        (click)="decreaseOne(i)" [disabled]="item.nombreItem <= 0">-</button>
+        <button nbButton
+        status="danger"
+        (click)="deleteItemCourse(i)"
+       >Suppr.</button>
+    </li>
+</ul>

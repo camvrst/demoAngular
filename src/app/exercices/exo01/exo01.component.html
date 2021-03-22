@@ -1,0 +1,32 @@
+<p>Chrono :</p>
+<nb-card>
+  <nb-card-body>
+    <p>{{ chrono | totime }}</p>
+    <br />
+    <br />
+    <button
+      nbButton
+      status="success"
+      (click)="startChrono()"
+      [disabled]="disabledStart"
+    >
+      Démarrer le chrono
+    </button>
+    <button
+      nbButton
+      status="danger"
+      (click)="stopChrono()"
+      [disabled]="disabledStop"
+    >
+      Stopper le chrono
+    </button>
+    <button
+      nbButton
+      status="warning"
+      (click)="resetChrono()"
+      [disabled]="disabledReset"
+    >
+      Reset chrono
+    </button>
+  </nb-card-body>
+</nb-card>

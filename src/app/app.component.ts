@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+// Permet de l'exporter pour l'importer dans app.modules
 export class AppComponent {
   title = 'DemoAngular';
 }

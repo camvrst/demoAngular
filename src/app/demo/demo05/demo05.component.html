@@ -1,0 +1,33 @@
+<h3>Structural Directives</h3>
+<p>ngIf</p>
+<nb-card>
+    <nb-card-header (click)="toggle()">
+        <nb-icon icon="arrow-down"></nb-icon>
+    </nb-card-header>
+    <nb-card-body *ngIf="isToggled">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi unde, quaerat accusantium earum, in incidunt dignissimos recusandae veritatis consequatur est minima ut libero saepe, odit totam. Saepe blanditiis unde sunt.
+    </nb-card-body>
+</nb-card>
+<br/>
+<p>ngFor</p>
+<ul>
+    <li *ngFor="let item of list; let i = index; let pair = even" [ngClass]="{'maClasse' : pair}">
+        {{i}} - {{item}}
+    </li>
+</ul>
+<p>ngSwitch</p>
+<input nbInput [(ngModel)]="maVar" type="text" />
+<div [ngSwitch]="maVar">
+    <div *ngSwitchCase="1">
+        Pomme
+    </div>
+    <div *ngSwitchCase="2">
+        Fraise
+    </div>
+    <div *ngSwitchCase="3">
+        Mangue
+    </div>
+    <div *ngSwitchDefault>
+        Entrez 1, 2 ou 3
+    </div>
+</div>

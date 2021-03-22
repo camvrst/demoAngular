@@ -1,0 +1,8 @@
+<h3></h3>
+<form [formGroup]="fg">
+    <input [nbDatepicker]="dp" type="text" formControlName="date">
+    <nb-datepicker #dp></nb-datepicker>
+    <p *ngIf="fg.controls['date'].invalid">
+        {{ fg.controls['date'].errors['notBeforeError'] }}
+    </p>
+</form>

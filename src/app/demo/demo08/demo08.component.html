@@ -1,0 +1,23 @@
+<h3>Afficher la liste des users</h3>
+<a routerLink="./new-user">Nouvel utilisateur</a>
+<ul>
+    <li *ngFor="let user of users">
+        <nb-card>
+            <nb-card-header>
+                {{user.firstName}} {{user.lastName}}
+            </nb-card-header>
+            <nb-card-body>
+                {{user.email}}
+            </nb-card-body>
+            <!-- La liste des films est nullable, ce qui rend l'affichage du footer conditionnel -->
+            <nb-card-footer *ngIf="user.films && user.films.length > 0">
+                <p>Films préférés</p>
+                <ul>
+                    <li *ngFor="let film of user.films">
+                        {{film}}
+                    </li>
+                </ul>
+            </nb-card-footer>
+        </nb-card>
+    </li>
+</ul>

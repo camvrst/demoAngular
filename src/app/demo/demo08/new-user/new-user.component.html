@@ -1,0 +1,26 @@
+<p>Nouvel utilisateur</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label>Nom : </label>
+        <input nbInput formControlName="lastName">
+    </p>
+    <p>
+        <label>Prénom : </label>
+        <input nbInput formControlName="firstName">
+    </p>
+    <p>
+        <label>Email : </label>
+        <input nbInput formControlName="email">
+    </p>
+    <div formArrayName="films">
+        <h4>Vos films préférés : </h4>
+        <p><label (click)="addFilms()">Ajouter</label></p>
+        <div *ngFor="let filmControl of getFilms().controls; let i = index">
+            <p>film {{i+1}} : 
+                <input nbInput type="text" [formControlName]="i">
+            </p>
+        </div>
+    </div>
+    <!--ici, tant que le userForm est invalide, le bouton est disabled -->
+    <button nbButton type="submit" [disabled]="userForm.invalid">Ajouter</button>
+</form>
